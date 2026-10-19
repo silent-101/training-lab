@@ -1,12 +1,8 @@
-import TrainingLab from '#/components/lab.tsx';
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import TrainingLab from "#/components/lab.tsx";
 
-export const Route = createFileRoute('/')({ component: Home })
+export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
-  return (
-    <div>
-      <TrainingLab/>
-    </div>
-  )
+	return <TrainingLab />;
 }
