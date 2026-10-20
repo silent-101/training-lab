@@ -7,9 +7,6 @@ export const Route = createFileRoute("/threats")({
 
 function ThreatDatabasePage() {
 	return (
-		<SectionPage
-			title="Threat Database"
-			description="The threat database."
-		/>
+		<SectionPage title="Threat Database" description="The threat database." />
 	);
 }

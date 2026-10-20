@@ -1,5 +1,2 @@
-function threatDatabase(){
-
-
-}
+function threatDatabase() {}
 export default threatDatabase;

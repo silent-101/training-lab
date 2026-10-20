@@ -1,3 +1,3 @@
-function modelEvaluation(){}
+function modelEvaluation() {}
 
 export default modelEvaluation;

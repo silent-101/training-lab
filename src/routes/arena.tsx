@@ -7,9 +7,6 @@ export const Route = createFileRoute("/arena")({
 
 function SimulationArenaPage() {
 	return (
-		<SectionPage
-			title="Simulation Arena"
-			description="The simulation arena."
-		/>
+		<SectionPage title="Simulation Arena" description="The simulation arena." />
 	);
 }

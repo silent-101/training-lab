@@ -1,3 +1,3 @@
-function settings(){}
+function settings() {}
 
 export default settings;

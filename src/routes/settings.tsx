@@ -6,10 +6,5 @@ export const Route = createFileRoute("/settings")({
 });
 
 function SettingsPage() {
-	return (
-		<SectionPage
-			title="Settings"
-			description="The settings."
-		/>
-	);
+	return <SectionPage title="Settings" description="The settings." />;
 }

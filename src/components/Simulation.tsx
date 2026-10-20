@@ -1,4 +1,2 @@
-function simulation(){
-
-}
+function simulation() {}
 export default simulation;

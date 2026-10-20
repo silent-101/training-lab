@@ -6,10 +6,5 @@ export const Route = createFileRoute("/journal")({
 });
 
 function JournalPage() {
-	return (
-		<SectionPage
-			title="Field Journal"
-			description="The field journal."
-		/>
-	);
+	return <SectionPage title="Field Journal" description="The field journal." />;
 }

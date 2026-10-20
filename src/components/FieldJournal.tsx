@@ -1,2 +1,2 @@
-function fieldJournal(){}
+function fieldJournal() {}
 export default fieldJournal;

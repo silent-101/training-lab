@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArenaRouteImport } from './routes/arena'
 import { Route as EvaluationRouteImport } from './routes/evaluation'
 import { Route as JournalRouteImport } from './routes/journal'
+import { Route as LabRouteImport } from './routes/lab'
 import { Route as LiveRouteImport } from './routes/live'
 import { Route as OverviewRouteImport } from './routes/overview'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -36,6 +37,11 @@ const EvaluationRoute = EvaluationRouteImport.update({
 const JournalRoute = JournalRouteImport.update({
   id: '/journal',
   path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LabRoute = LabRouteImport.update({
+  id: '/lab',
+  path: '/lab',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LiveRoute = LiveRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/arena': typeof ArenaRoute
   '/evaluation': typeof EvaluationRoute
   '/journal': typeof JournalRoute
+  '/lab': typeof LabRoute
   '/live': typeof LiveRoute
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/arena': typeof ArenaRoute
   '/evaluation': typeof EvaluationRoute
   '/journal': typeof JournalRoute
+  '/lab': typeof LabRoute
   '/live': typeof LiveRoute
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/arena': typeof ArenaRoute
   '/evaluation': typeof EvaluationRoute
   '/journal': typeof JournalRoute
+  '/lab': typeof LabRoute
   '/live': typeof LiveRoute
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/arena'
     | '/evaluation'
     | '/journal'
+    | '/lab'
     | '/live'
     | '/overview'
     | '/settings'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/arena'
     | '/evaluation'
     | '/journal'
+    | '/lab'
     | '/live'
     | '/overview'
     | '/settings'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/arena'
     | '/evaluation'
     | '/journal'
+    | '/lab'
     | '/live'
     | '/overview'
     | '/settings'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   ArenaRoute: typeof ArenaRoute
   EvaluationRoute: typeof EvaluationRoute
   JournalRoute: typeof JournalRoute
+  LabRoute: typeof LabRoute
   LiveRoute: typeof LiveRoute
   OverviewRoute: typeof OverviewRoute
   SettingsRoute: typeof SettingsRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/journal'
       fullPath: '/journal'
       preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lab': {
+      id: '/lab'
+      path: '/lab'
+      fullPath: '/lab'
+      preLoaderRoute: typeof LabRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/live': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   ArenaRoute: ArenaRoute,
   EvaluationRoute: EvaluationRoute,
   JournalRoute: JournalRoute,
+  LabRoute: LabRoute,
   LiveRoute: LiveRoute,
   OverviewRoute: OverviewRoute,
   SettingsRoute: SettingsRoute,
