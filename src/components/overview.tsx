@@ -1,14 +1,13 @@
 const footage = [
-  { id: "VID-0001", resonance: 24, phase: 81, memory: 67, energy: 72, stress: 88, threat: "Phase Distortion" },
-  { id: "VID-0002", resonance: 76, phase: 35, memory: 28, energy: 44, stress: 62, threat: "Memory Echo" },
-  { id: "VID-0003", resonance: 24, phase: 81, memory: 67, energy: 72, stress: 88, threat: "Phase Distortion" },
-  { id: "VID-0004", resonance: 76, phase: 35, memory: 28, energy: 44, stress: 62, threat: "Memory Echo" },
-  { id: "VID-0005", resonance: 24, phase: 81, memory: 67, energy: 72, stress: 88, threat: "Phase Distortion" },
-  { id: "VID-0006", resonance: 76, phase: 35, memory: 28, energy: 44, stress: 62, threat: "Memory Echo" },
-  { id: "VID-0007", resonance: 24, phase: 81, memory: 67, energy: 72, stress: 88, threat: "Phase Distortion" },
-  { id: "VID-0008", resonance: 76, phase: 35, memory: 28, energy: 44, stress: 62, threat: "Memory Echo" },
+  { id: "1", resonance: 24, phase: 81, memory: 67, energy: 72, stress: 88, threat: "Phase Distortion" },
+  { id: "2", resonance: 76, phase: 35, memory: 28, energy: 44, stress: 62, threat: "Memory Echo" },
+  { id: "3", resonance: 24, phase: 81, memory: 67, energy: 72, stress: 88, threat: "Phase Distortion" },
+  { id: "4", resonance: 76, phase: 35, memory: 28, energy: 44, stress: 62, threat: "Memory Echo" },
+  { id: "5", resonance: 24, phase: 81, memory: 67, energy: 72, stress: 88, threat: "Phase Distortion" },
+  { id: "6", resonance: 76, phase: 35, memory: 28, energy: 44, stress: 62, threat: "Memory Echo" },
+  { id: "7", resonance: 24, phase: 81, memory: 67, energy: 72, stress: 88, threat: "Phase Distortion" },
+  { id: "8", resonance: 76, phase: 35, memory: 28, energy: 44, stress: 62, threat: "Memory Echo" },
 ];
-
 const stats = [
   ["TRAINING SAMPLES", "1,200", "Recorded Footage"],
   ["THREAT CLASSES", "04", "Anomaly classes"],
