@@ -1,16 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SectionPage } from "#/components/section-page";
+import Overview from "#/components/overview";
 
 export const Route = createFileRoute("/overview")({
 	component: OverviewPage,
 });
 
 function OverviewPage() {
-	return (
-		<SectionPage
-			title="Overview"
-			description="The overview"
-        />
-
-	);
+	return <Overview />;
 }
