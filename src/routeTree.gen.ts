@@ -19,7 +19,9 @@ import { Route as LiveRouteImport } from './routes/live'
 import { Route as OverviewRouteImport } from './routes/overview'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ThreatsRouteImport } from './routes/threats'
+import { Route as ApiFileRouteImport } from './routes/api.file'
 import { Route as ApiGameinfoRouteImport } from './routes/api.gameinfo'
+import { Route as ApiTestRouteImport } from './routes/api.test'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -71,9 +73,19 @@ const ThreatsRoute = ThreatsRouteImport.update({
   path: '/threats',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiFileRoute = ApiFileRouteImport.update({
+  id: '/api/file',
+  path: '/api/file',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiGameinfoRoute = ApiGameinfoRouteImport.update({
   id: '/api/gameinfo',
   path: '/api/gameinfo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTestRoute = ApiTestRouteImport.update({
+  id: '/api/test',
+  path: '/api/test',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -88,7 +100,9 @@ export interface FileRoutesByFullPath {
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
   '/threats': typeof ThreatsRoute
+  '/api/file': typeof ApiFileRoute
   '/api/gameinfo': typeof ApiGameinfoRoute
+  '/api/test': typeof ApiTestRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -101,7 +115,9 @@ export interface FileRoutesByTo {
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
   '/threats': typeof ThreatsRoute
+  '/api/file': typeof ApiFileRoute
   '/api/gameinfo': typeof ApiGameinfoRoute
+  '/api/test': typeof ApiTestRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -115,7 +131,9 @@ export interface FileRoutesById {
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
   '/threats': typeof ThreatsRoute
+  '/api/file': typeof ApiFileRoute
   '/api/gameinfo': typeof ApiGameinfoRoute
+  '/api/test': typeof ApiTestRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -130,7 +148,9 @@ export interface FileRouteTypes {
     | '/overview'
     | '/settings'
     | '/threats'
+    | '/api/file'
     | '/api/gameinfo'
+    | '/api/test'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -143,7 +163,9 @@ export interface FileRouteTypes {
     | '/overview'
     | '/settings'
     | '/threats'
+    | '/api/file'
     | '/api/gameinfo'
+    | '/api/test'
   id:
     | '__root__'
     | '/'
@@ -156,7 +178,9 @@ export interface FileRouteTypes {
     | '/overview'
     | '/settings'
     | '/threats'
+    | '/api/file'
     | '/api/gameinfo'
+    | '/api/test'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -170,7 +194,9 @@ export interface RootRouteChildren {
   OverviewRoute: typeof OverviewRoute
   SettingsRoute: typeof SettingsRoute
   ThreatsRoute: typeof ThreatsRoute
+  ApiFileRoute: typeof ApiFileRoute
   ApiGameinfoRoute: typeof ApiGameinfoRoute
+  ApiTestRoute: typeof ApiTestRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -245,11 +271,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ThreatsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/file': {
+      id: '/api/file'
+      path: '/api/file'
+      fullPath: '/api/file'
+      preLoaderRoute: typeof ApiFileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/gameinfo': {
       id: '/api/gameinfo'
       path: '/api/gameinfo'
       fullPath: '/api/gameinfo'
       preLoaderRoute: typeof ApiGameinfoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/test': {
+      id: '/api/test'
+      path: '/api/test'
+      fullPath: '/api/test'
+      preLoaderRoute: typeof ApiTestRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -266,7 +306,9 @@ const rootRouteChildren: RootRouteChildren = {
   OverviewRoute: OverviewRoute,
   SettingsRoute: SettingsRoute,
   ThreatsRoute: ThreatsRoute,
+  ApiFileRoute: ApiFileRoute,
   ApiGameinfoRoute: ApiGameinfoRoute,
+  ApiTestRoute: ApiTestRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
