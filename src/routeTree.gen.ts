@@ -12,12 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArenaRouteImport } from './routes/arena'
 import { Route as EvaluationRouteImport } from './routes/evaluation'
+import { Route as FormRouteImport } from './routes/form'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as LabRouteImport } from './routes/lab'
 import { Route as LiveRouteImport } from './routes/live'
 import { Route as OverviewRouteImport } from './routes/overview'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ThreatsRouteImport } from './routes/threats'
+import { Route as ApiGameinfoRouteImport } from './routes/api.gameinfo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -32,6 +34,11 @@ const ArenaRoute = ArenaRouteImport.update({
 const EvaluationRoute = EvaluationRouteImport.update({
   id: '/evaluation',
   path: '/evaluation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormRoute = FormRouteImport.update({
+  id: '/form',
+  path: '/form',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JournalRoute = JournalRouteImport.update({
@@ -64,40 +71,51 @@ const ThreatsRoute = ThreatsRouteImport.update({
   path: '/threats',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiGameinfoRoute = ApiGameinfoRouteImport.update({
+  id: '/api/gameinfo',
+  path: '/api/gameinfo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/arena': typeof ArenaRoute
   '/evaluation': typeof EvaluationRoute
+  '/form': typeof FormRoute
   '/journal': typeof JournalRoute
   '/lab': typeof LabRoute
   '/live': typeof LiveRoute
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
   '/threats': typeof ThreatsRoute
+  '/api/gameinfo': typeof ApiGameinfoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/arena': typeof ArenaRoute
   '/evaluation': typeof EvaluationRoute
+  '/form': typeof FormRoute
   '/journal': typeof JournalRoute
   '/lab': typeof LabRoute
   '/live': typeof LiveRoute
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
   '/threats': typeof ThreatsRoute
+  '/api/gameinfo': typeof ApiGameinfoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/arena': typeof ArenaRoute
   '/evaluation': typeof EvaluationRoute
+  '/form': typeof FormRoute
   '/journal': typeof JournalRoute
   '/lab': typeof LabRoute
   '/live': typeof LiveRoute
   '/overview': typeof OverviewRoute
   '/settings': typeof SettingsRoute
   '/threats': typeof ThreatsRoute
+  '/api/gameinfo': typeof ApiGameinfoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -105,46 +123,54 @@ export interface FileRouteTypes {
     | '/'
     | '/arena'
     | '/evaluation'
+    | '/form'
     | '/journal'
     | '/lab'
     | '/live'
     | '/overview'
     | '/settings'
     | '/threats'
+    | '/api/gameinfo'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/arena'
     | '/evaluation'
+    | '/form'
     | '/journal'
     | '/lab'
     | '/live'
     | '/overview'
     | '/settings'
     | '/threats'
+    | '/api/gameinfo'
   id:
     | '__root__'
     | '/'
     | '/arena'
     | '/evaluation'
+    | '/form'
     | '/journal'
     | '/lab'
     | '/live'
     | '/overview'
     | '/settings'
     | '/threats'
+    | '/api/gameinfo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArenaRoute: typeof ArenaRoute
   EvaluationRoute: typeof EvaluationRoute
+  FormRoute: typeof FormRoute
   JournalRoute: typeof JournalRoute
   LabRoute: typeof LabRoute
   LiveRoute: typeof LiveRoute
   OverviewRoute: typeof OverviewRoute
   SettingsRoute: typeof SettingsRoute
   ThreatsRoute: typeof ThreatsRoute
+  ApiGameinfoRoute: typeof ApiGameinfoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -168,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/evaluation'
       fullPath: '/evaluation'
       preLoaderRoute: typeof EvaluationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/form': {
+      id: '/form'
+      path: '/form'
+      fullPath: '/form'
+      preLoaderRoute: typeof FormRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/journal': {
@@ -212,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ThreatsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/gameinfo': {
+      id: '/api/gameinfo'
+      path: '/api/gameinfo'
+      fullPath: '/api/gameinfo'
+      preLoaderRoute: typeof ApiGameinfoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -219,12 +259,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArenaRoute: ArenaRoute,
   EvaluationRoute: EvaluationRoute,
+  FormRoute: FormRoute,
   JournalRoute: JournalRoute,
   LabRoute: LabRoute,
   LiveRoute: LiveRoute,
   OverviewRoute: OverviewRoute,
   SettingsRoute: SettingsRoute,
   ThreatsRoute: ThreatsRoute,
+  ApiGameinfoRoute: ApiGameinfoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
