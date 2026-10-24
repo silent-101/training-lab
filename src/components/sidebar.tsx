@@ -27,20 +27,6 @@ const NAV = [
 		to: "/threats",
 	},
 	{ id: "live", label: "Live Diagnostics", icon: ScanIcon, to: "/live" },
-	{ id: "arena", label: "Simulation Arena", icon: Target01Icon, to: "/arena" },
-	{
-		id: "eval",
-		label: "Model Evaluation",
-		icon: ChartLineData01Icon,
-		to: "/evaluation",
-	},
-	{
-		id: "journal",
-		label: "Field Journal",
-		icon: BookOpen01Icon,
-		to: "/journal",
-	},
-	{ id: "settings", label: "Settings", icon: Settings01Icon, to: "/settings" },
 ];
 
 export function Sidebar() {
